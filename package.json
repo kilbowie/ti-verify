@@ -1,0 +1,37 @@
+{
+  "name": "ti-verify",
+  "version": "0.1.0",
+  "description": "Check a Truly Imagined evidence record without relying on Truly Imagined.",
+  "license": "Apache-2.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "ti-verify": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.test.json",
+    "test": "vitest run",
+    "oracle": "node oracle/oracle.mjs"
+  },
+  "dependencies": {
+    "asn1js": "^3.0.10",
+    "pkijs": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.2",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "files": [
+    "dist",
+    "oracle",
+    "schemas",
+    "SPEC.md",
+    "LICENSE",
+    "NOTICE"
+  ]
+}

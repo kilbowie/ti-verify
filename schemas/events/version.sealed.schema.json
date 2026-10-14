@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kilbowie/ti-verify/schemas/events/version.sealed.schema.json",
+  "title": "version.sealed",
+  "type": "object",
+  "properties": {
+    "event": {
+      "const": "version.sealed"
+    },
+    "scheme": {
+      "const": "ti-seal-v1"
+    },
+    "subject_type": {
+      "const": "work"
+    },
+    "subject_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "seq": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "final"
+      ]
+    },
+    "medium": {
+      "type": "string",
+      "enum": [
+        "image",
+        "video",
+        "script",
+        "text",
+        "audio",
+        "model3d",
+        "notation"
+      ]
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "required": [
+    "event",
+    "scheme",
+    "subject_type",
+    "subject_hash",
+    "seq",
+    "kind",
+    "medium",
+    "sha256"
+  ],
+  "additionalProperties": false
+}

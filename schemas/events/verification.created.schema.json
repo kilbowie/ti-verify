@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kilbowie/ti-verify/schemas/events/verification.created.schema.json",
+  "title": "verification.created",
+  "type": "object",
+  "properties": {
+    "event": {
+      "const": "verification.created"
+    },
+    "scheme": {
+      "const": "ti-seal-v1"
+    },
+    "subject_type": {
+      "const": "verification"
+    },
+    "subject_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "verified_18plus"
+      ]
+    },
+    "id_type_checked": {
+      "type": "string",
+      "enum": [
+        "passport",
+        "driving_licence"
+      ]
+    },
+    "method": {
+      "type": "string",
+      "enum": [
+        "in_person_v1",
+        "in_person_group_v1"
+      ]
+    },
+    "location_type": {
+      "type": "string",
+      "enum": [
+        "public",
+        "semi_public",
+        "private"
+      ]
+    },
+    "protocol_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
+    "verifier_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "verified_on": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "media_consent": {
+      "type": "boolean"
+    },
+    "verifier_relation": {
+      "type": "string",
+      "enum": [
+        "none",
+        "close"
+      ]
+    },
+    "companion_present": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "event",
+    "scheme",
+    "subject_type",
+    "subject_hash",
+    "outcome",
+    "id_type_checked",
+    "method",
+    "location_type",
+    "protocol_version",
+    "verifier_hash",
+    "verified_on",
+    "media_consent"
+  ],
+  "additionalProperties": false
+}

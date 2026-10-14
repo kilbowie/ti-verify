@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kilbowie/ti-verify/schemas/events/anchor.published.schema.json",
+  "title": "anchor.published",
+  "type": "object",
+  "properties": {
+    "event": {
+      "const": "anchor.published"
+    },
+    "scheme": {
+      "const": "ti-seal-v1"
+    },
+    "subject_type": {
+      "const": "anchor"
+    },
+    "subject_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "anchor_key": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-W[0-9]{2}$"
+    },
+    "merkle_scheme": {
+      "const": "rfc6962-sha256"
+    },
+    "head_pos": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "head_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "merkle_root": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "required": [
+    "event",
+    "scheme",
+    "subject_type",
+    "subject_hash",
+    "anchor_key",
+    "merkle_scheme",
+    "head_pos",
+    "head_hash",
+    "merkle_root"
+  ],
+  "additionalProperties": false
+}

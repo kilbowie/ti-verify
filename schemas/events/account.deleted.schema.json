@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kilbowie/ti-verify/schemas/events/account.deleted.schema.json",
+  "title": "account.deleted",
+  "type": "object",
+  "properties": {
+    "event": {
+      "const": "account.deleted"
+    },
+    "scheme": {
+      "const": "ti-seal-v1"
+    },
+    "subject_type": {
+      "const": "account"
+    },
+    "subject_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "required": [
+    "event",
+    "scheme",
+    "subject_type",
+    "subject_hash"
+  ],
+  "additionalProperties": false
+}

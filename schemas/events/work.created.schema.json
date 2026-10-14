@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kilbowie/ti-verify/schemas/events/work.created.schema.json",
+  "title": "work.created",
+  "type": "object",
+  "properties": {
+    "event": {
+      "const": "work.created"
+    },
+    "scheme": {
+      "const": "ti-seal-v1"
+    },
+    "subject_type": {
+      "const": "work"
+    },
+    "subject_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "medium": {
+      "type": "string",
+      "enum": [
+        "image",
+        "video",
+        "script",
+        "text",
+        "audio",
+        "model3d",
+        "notation"
+      ]
+    },
+    "entry_mode": {
+      "type": "string",
+      "enum": [
+        "in_vault",
+        "upload"
+      ]
+    },
+    "creator_ref": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "tos_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    }
+  },
+  "required": [
+    "event",
+    "scheme",
+    "subject_type",
+    "subject_hash",
+    "medium",
+    "entry_mode",
+    "creator_ref"
+  ],
+  "additionalProperties": false
+}

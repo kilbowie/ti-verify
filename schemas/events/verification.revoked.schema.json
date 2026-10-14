@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kilbowie/ti-verify/schemas/events/verification.revoked.schema.json",
+  "title": "verification.revoked",
+  "type": "object",
+  "properties": {
+    "event": {
+      "const": "verification.revoked"
+    },
+    "scheme": {
+      "const": "ti-seal-v1"
+    },
+    "subject_type": {
+      "const": "verification"
+    },
+    "subject_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "reason_category": {
+      "type": "string",
+      "enum": [
+        "fraud",
+        "misconduct",
+        "user_request",
+        "other",
+        "verifier_error"
+      ]
+    },
+    "protocol_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    }
+  },
+  "required": [
+    "event",
+    "scheme",
+    "subject_type",
+    "subject_hash",
+    "reason_category",
+    "protocol_version"
+  ],
+  "additionalProperties": false
+}

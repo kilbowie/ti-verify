@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kilbowie/ti-verify/schemas/events/work.visibility_changed.schema.json",
+  "title": "work.visibility_changed",
+  "type": "object",
+  "properties": {
+    "event": {
+      "const": "work.visibility_changed"
+    },
+    "scheme": {
+      "const": "ti-seal-v1"
+    },
+    "subject_type": {
+      "const": "work"
+    },
+    "subject_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "private",
+        "public"
+      ]
+    }
+  },
+  "required": [
+    "event",
+    "scheme",
+    "subject_type",
+    "subject_hash",
+    "visibility"
+  ],
+  "additionalProperties": false
+}

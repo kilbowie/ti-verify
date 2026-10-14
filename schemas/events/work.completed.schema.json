@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kilbowie/ti-verify/schemas/events/work.completed.schema.json",
+  "title": "work.completed",
+  "type": "object",
+  "properties": {
+    "event": {
+      "const": "work.completed"
+    },
+    "scheme": {
+      "const": "ti-seal-v1"
+    },
+    "subject_type": {
+      "const": "work"
+    },
+    "subject_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "final_seq": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "required": [
+    "event",
+    "scheme",
+    "subject_type",
+    "subject_hash",
+    "final_seq"
+  ],
+  "additionalProperties": false
+}

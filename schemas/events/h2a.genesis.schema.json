@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kilbowie/ti-verify/schemas/events/h2a.genesis.schema.json",
+  "title": "h2a.genesis",
+  "type": "object",
+  "properties": {
+    "event": {
+      "const": "h2a.genesis"
+    },
+    "scheme": {
+      "const": "ti-seal-v1"
+    },
+    "subject_type": {
+      "const": "chain"
+    },
+    "subject_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "chain": {
+      "const": "truly-imagined"
+    },
+    "conventions": {
+      "const": "H2A ADR-014"
+    },
+    "seal_scheme": {
+      "const": "ti-seal-v1"
+    },
+    "canonicalisation": {
+      "const": "RFC 8785"
+    },
+    "digest": {
+      "const": "SHA-256"
+    },
+    "signature_alg": {
+      "const": "ES256"
+    },
+    "signature_encoding": {
+      "const": "raw r||s, base64url"
+    },
+    "merkle_scheme": {
+      "const": "rfc6962-sha256"
+    },
+    "issuer_key_alias": {
+      "type": "string",
+      "minLength": 1
+    },
+    "issuer_key_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "issuer_public_key_pem": {
+      "type": "string",
+      "pattern": "^-----BEGIN PUBLIC KEY-----"
+    },
+    "timestamp_authorities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tsa": {
+            "type": "string",
+            "enum": [
+              "digicert",
+              "freetsa"
+            ]
+          },
+          "url": {
+            "type": "string"
+          },
+          "root": {
+            "type": "string"
+          },
+          "root_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "tsa",
+          "url",
+          "root",
+          "root_sha256"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "policy_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^https://"
+      }
+    }
+  },
+  "required": [
+    "event",
+    "scheme",
+    "subject_type",
+    "subject_hash",
+    "chain",
+    "conventions",
+    "seal_scheme",
+    "canonicalisation",
+    "digest",
+    "signature_alg",
+    "signature_encoding",
+    "merkle_scheme",
+    "issuer_key_alias",
+    "issuer_key_sha256",
+    "issuer_public_key_pem",
+    "timestamp_authorities",
+    "policy_refs"
+  ],
+  "additionalProperties": false
+}

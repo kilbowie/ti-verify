@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kilbowie/ti-verify/schemas/events/evidence.attached.schema.json",
+  "title": "evidence.attached",
+  "oneOf": [
+    {
+      "title": "a file",
+      "type": "object",
+      "properties": {
+        "event": {
+          "const": "evidence.attached"
+        },
+        "scheme": {
+          "const": "ti-seal-v1"
+        },
+        "subject_type": {
+          "const": "work"
+        },
+        "subject_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "project_file",
+            "raw_footage",
+            "correspondence",
+            "other",
+            "timelapse",
+            "edit_history",
+            "physical_reference",
+            "registration"
+          ]
+        },
+        "evidence_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "event",
+        "scheme",
+        "subject_type",
+        "subject_hash",
+        "kind",
+        "evidence_sha256"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "title": "a prior publication",
+      "type": "object",
+      "properties": {
+        "event": {
+          "const": "evidence.attached"
+        },
+        "scheme": {
+          "const": "ti-seal-v1"
+        },
+        "subject_type": {
+          "const": "work"
+        },
+        "subject_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "kind": {
+          "const": "prior_publication"
+        },
+        "url_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "retrieved_on": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        }
+      },
+      "required": [
+        "event",
+        "scheme",
+        "subject_type",
+        "subject_hash",
+        "kind",
+        "url_sha256",
+        "retrieved_on"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

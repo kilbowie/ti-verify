@@ -1,0 +1,28 @@
+ti-verify
+Copyright 2026 Truly Imagined UK Limited
+
+src/h2a/ is a copy of the @ti/h2a package, whose notice follows.
+
+@ti/h2a
+Copyright 2026 Truly Imagined
+
+This package includes software and test data from H2A Protocol
+(https://github.com/kilbowie/h2a-protocol), Copyright Kilbowie, licensed under the
+Apache License, Version 2.0. A copy of the licence is in LICENSES/Apache-2.0.txt.
+
+Taken from commit 61e1ca84869adb917435575a8175313ac823a304:
+
+  reference/verifier/src/jcs.ts   ported to src/canonical.ts, and its ES256 encoding
+                                  helpers to src/ecdsa.ts. Modified: Uint8Array instead of
+                                  Node's Buffer so the code runs in browsers; stricter DER
+                                  parsing; strict-mode typing; the seal payload policy in
+                                  canonical.ts is new. Each file's header records its changes.
+
+  interop/vectors/vectors.json    copied unmodified to test/vectors/, with its SHA-256
+  interop/vectors/VECTORS.sha256  manifest. vectors.json includes RFC 8785 Appendix B test
+                                  data, and a published test key pair that must never be
+                                  used to sign anything real.
+
+oracle/oracle.mjs, src/check.ts, src/cli.ts and src/tsa.ts are Truly Imagined's own, under the same
+Apache License 2.0. pkijs (Copyright GlobalSign and Peculiar Ventures) and asn1js (Copyright GMO GlobalSign and Peculiar
+Ventures), used by src/tsa.ts, are BSD-3-Clause.
